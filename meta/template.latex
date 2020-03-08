@@ -21,6 +21,9 @@ $if(csl-refs)$
 $endif$
 
 %% Useful Packages
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 \usepackage{amsmath}
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 \usepackage[pdftex]{graphicx}
