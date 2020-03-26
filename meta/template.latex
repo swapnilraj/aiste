@@ -24,9 +24,41 @@ $endif$
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+\usepackage{float}
+\let\origfigure=\figure
+\let\endorigfigure=\endfigure
+\renewenvironment{figure}[1][]{%
+  \origfigure[H]
+}{%
+  \endorigfigure
+}
+
 \usepackage{amsmath}
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
 \usepackage[pdftex]{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width or the height of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleWidthIfNeeded{%
+ \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\def\ScaleHeightIfNeeded{%
+  \ifdim\Gin@nat@height>0.9\textheight
+    0.9\textheight
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\setkeys{Gin}{width=\ScaleWidthIfNeeded,height=\ScaleHeightIfNeeded,keepaspectratio}%
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=black]{hyperref}
 \usepackage{caption} % if no caption, no colon
