@@ -75,6 +75,7 @@ $endif$
 
 \usepackage{mathpazo}
 
+\renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\theequation}{\arabic{equation}} %% Use continuous equation numbers
 
 %% Format Chapter headings appropriately
